@@ -5,7 +5,7 @@ const _ = require('lodash')
 
 const server = http.createServer((req, res) => {
     
-    //loadash
+    //lodash
     const num = _.random(0, 20)
     console.log(num)
     const greet = _.once(() => {
