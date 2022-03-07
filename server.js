@@ -12,12 +12,20 @@ const server = http.createServer((req, res) => {
     switch(req.url) {
         case '/':
             path += 'index.html'
+            res.statusCode = 200
             break
         case '/about':
             path += 'about.html'
+            res.statusCode = 200
+            break
+        case '/about-me':
+            res.statusCode = 304
+            res.setHeader('Location', '/about')
+            res.end()
             break
         default:
             path += '404.html'
+            res.statusCode = 404
             break
     }
 
@@ -34,7 +42,7 @@ const server = http.createServer((req, res) => {
     
 })
 
-//2nd paramater is localhost by default, you can change if you want
+//2nd parameter is localhost by default, you can change if you want
 server.listen(3000, 'localhost', () => {
     console.log('listening for requests on port 3000')
 })
