@@ -1,9 +1,17 @@
 const http = require('http')
 //module for reading files
 const fs = require('fs')
+const _ = require('lodash')
 
 const server = http.createServer((req, res) => {
-    console.log(req.method)
+    
+    //loadash
+    const num = _.random(0, 20)
+    console.log(num)
+    const greet = _.once(() => {
+        console.log('hello')
+    })
+    greet()
 
     //set header content type
     res.setHeader('Content-Type', 'text/html')
